@@ -2,5 +2,6 @@
 #
 # Ensure this file is checked in to source control!
 
+gem 'cocoapods', '1.16.0'
 gem 'fastlane-plugin-increment_version_code'
 gem 'fastlane-plugin-browserstack'
