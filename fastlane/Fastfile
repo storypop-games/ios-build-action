@@ -58,7 +58,8 @@ platform :ios do
         provisioningProfiles: {
           "#{ENV['IOS_APP_ID']}" => "match AppStore #{ENV['IOS_APP_ID']}",
         },
-      } : nil
+      } : nil,
+      include_symbols: true
     )
 
     if ENV["BROWSERSTACK_UPLOAD"] == 'true'
@@ -77,6 +78,17 @@ platform :ios do
         team_name: ENV['TEAM_NAME'],
         skip_waiting_for_build_processing: true,
         skip_submission: true,
+      )
+    end
+
+    # --- Crashlytics dSYM upload ---
+    if ENV["CRASHLYTICS_UPLOAD"] == "true"
+      dsym_path = lane_context[SharedValues::DSYM_OUTPUT_PATH]
+
+      # If you're using CocoaPods, gsp_path is usually enough:
+      upload_symbols_to_crashlytics(
+        gsp_path: ENV["CRASHLYTICS_GSP_PATH"],   # e.g. "./YourApp/GoogleService-Info.plist"
+        dsym_path: dsym_path
       )
     end
   end

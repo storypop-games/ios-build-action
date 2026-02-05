@@ -1,6 +1,6 @@
 {
   "name": "spark-ios-build-action",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Edoardo Dusi <edoardo.dusi@sparkfabrik.com> (https://github.com/sparkfabrik)",
+  "author": "Edoardo Dusi <edoardo.dusi@sparkfabrik.com> (https://github.com/sparkfabrik) and modified by Tomasz Paczesny (https://github.com/tomaszpaczesny)",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "1.9.1",

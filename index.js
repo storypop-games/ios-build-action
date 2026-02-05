@@ -34,6 +34,8 @@ async function run() {
     process.env.FASTLANE_VERSION = core.getInput("fastlane-version");
     process.env.FASTLANE_ENV = core.getInput("fastlane-env");
     process.env.IOS_APP_ID = core.getInput("ios-app-id");
+    process.env.CRASHLYTICS_UPLOAD = core.getInput("upload-dsym-to-crashlytics");
+    process.env.CRASHLYTICS_GSP_PATH = core.getInput("gsm-path");
     await exec.exec(`bash ${__dirname}/../build.sh`);
   } catch (error) {
     core.setFailed(error.message);
