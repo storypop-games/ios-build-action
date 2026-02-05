@@ -100,7 +100,8 @@ platform :ios do
       # If you're using CocoaPods, gsp_path is usually enough:
       upload_symbols_to_crashlytics(
         gsp_path: ENV["CRASHLYTICS_GSP_PATH"],   # e.g. "./YourApp/GoogleService-Info.plist"
-        dsym_path: dsym_path
+        dsym_path: dsym_path,
+        binary_path: "Pods/FirebaseCrashlytics/upload-symbols"
       )
     end
   end
