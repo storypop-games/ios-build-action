@@ -116,13 +116,19 @@ Name of the env file name to pass to `fastlane --env`
 
 The iOS application identifier; useful to sync a specific provisioning profile
 
-### `upload-dsym-to-crashlytics`
+### `crashlytics-upload-dsym`
 
 Should the dSYM file be uploaded to Crashlytics? Achieved using upload_symbols_to_crashlytics Fastlane action.
 
-### `gsm-path`
+### `crashlytics-gsm-path`
 
 Path to Google Service credentials file e.g. './YourApp/GoogleService-Info.plist'. Required when uploading DSYM to Crashlytics to identify project properly.
+
+### `crashlytics-upload-symbols-path`
+
+Path to upload-symbold binary of Crashlytics library, usually in Pods/FirebaseCrashlytics folder.
+
+
 
 ## Contributions Welcome!
 
@@ -159,6 +165,7 @@ If you have any other inputs you'd like to add, feel free to create PR.
     browserstack-access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
     fastlane-env: stage
     ios-app-id: com.identifier.my_app
-    upload-dsym-to-crashlytics: true
-    gsm-path: "./YourApp/GoogleService-Info.plist"
+    crashlytics-upload-dsym: true
+    crashlytics-gsm-path: "./YourApp/GoogleService-Info.plist"
+    crashlytics-upload-symbols-path: "Pods/FirebaseCrashlytics/upload-symbols"
 ```

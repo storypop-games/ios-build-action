@@ -98,14 +98,18 @@ inputs:
   ios-app-id:
     description: "The iOS application identifier; useful to sync a specific provisioning profile"
     required: false
-  upload-dsym-to-crashlytics:
+  crashlytics-upload-dsym:
     description: "Upload DSYM files to Crashlytics."
     required: false
     default: false
-  gsm-path:
+  crashlytics-gsm-path:
     description: "Path to Google Service credentials file e.g. './YourApp/GoogleService-Info.plist'"
     required: false
     default: ""
+  crashlytics-upload-symbols-path:
+    description: "Path to upload-symbols Crashlytics binary e.g. 'Pods/FirebaseCrashlytics/upload-symbols'"
+    required: false
+    default: "Pods/FirebaseCrashlytics/upload-symbols"
 runs:
   using: "node16"
   main: "dist/index.js"
