@@ -1,3 +1,5 @@
+require 'fileutils'
+
 default_platform(:ios)
 
 platform :ios do
@@ -61,6 +63,16 @@ platform :ios do
       } : nil,
       include_symbols: true
     )
+
+    dsym_zip(
+      archive_path: lane_context[SharedValues::XCODEBUILD_ARCHIVE]
+    )
+
+    # move it next to the IPA output path
+    original_dsym_zip = lane_context[SharedValues::DSYM_ZIP_PATH]
+    ipa_dir = File.dirname(ENV['OUTPUT_PATH'])
+    fixed_dsym_zip = File.join(ipa_dir, "build.dsym.zip")
+    FileUtils.mv(original_dsym_zip, fixed_dsym_zip)
 
     if ENV["BROWSERSTACK_UPLOAD"] == 'true'
       upload_to_browserstack_app_live(
